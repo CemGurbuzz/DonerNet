@@ -1,0 +1,51 @@
+﻿@page
+@model DonerNet.Pages.OrdersModel
+@{
+}
+
+<h3>Orders</h3>
+
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Döner Name 
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Order Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.DonerOrders)
+        {
+            <tr>
+                <td>
+                    @order.Id
+                </td>
+                <td>
+                    @order.DonerName
+                </td>
+                <td>
+                    <small>€</small>@order.BasePrice
+                </td>
+                <td>
+                    @order.OrderDateTime.ToString("HH:mm  ,  dd-MM-yyyy")
+                </td>
+                <td>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@order.Id">
+                        <button type="submit" class="btnDonerLight"><i>Cancel Order</i></button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

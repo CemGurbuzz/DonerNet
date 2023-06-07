@@ -1,0 +1,42 @@
+﻿@page
+@model DonerNet.Pages.DonerModel
+@{
+}
+
+<div class="text-center">
+    <div class="mainText">
+        <h1 class="display-4 text-capitalize text-black">
+            Our great selection of Döners!</h1>
+        <h4>Choose one, or try our Menu Builder!</h4>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5 mt-5">
+                <div class="w-100 row makeYourOwnDiv">
+                    <div class="col-4">
+                        <img src="~/images/doner-menu.png" class="w-100" />
+                    </div>
+                    <div class="col-8 align-items-center">
+                        <div class="align-middle makeYourOwnText">
+                            <h3 style="text-align:left;">Create your own Döner Menu</h3>
+                            <p style="text-align:left;">Make your own Döner Menu with our Menu Builder</p>
+                            <a class="btn btnDoner" style="float: left" asp-area="" asp-page="Forms/CustomMenu">Try Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @foreach (var doner in Model.fakeDonerDB)
+            {
+                var imagePath = "~/images/" + (doner.ImageTitle + ".png");
+
+                <div class="col-4 mb-5">
+
+                    <a class="doner-img" asp-area="" asp-page="Checkout/Checkout" asp-route-ImageTitle="@doner.ImageTitle" asp-route-DonerName="@doner.DonerName" asp-route-DonerPrice="@doner.FinalPrice">
+                        <img src="@imagePath" class="w-100" asp-append-version="true" />
+                    </a>
+                    <br />
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@page
+@model DonerNet.Pages.ReviewsModel
+
+<h1>Reviews</h1>
+
+<div class="d-flex justify-content-end mb-3">
+    <a asp-page="/Reviews/WriteReview" class="btn btnDoner"><i class="bi bi-plus-circle"></i> Create Review</a>
+</div>
+<br />
+
+@foreach (var review in Model.Reviews)
+{
+    <div class="review-item mb-4">
+        <div class="d-flex justify-content-between">
+            <div>
+                <div>
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        if (i <= review.Rate)
+                        {
+                            <img src="~/images/star.png" alt="Star" class="star-image" />
+                        }
+                        else
+                        {
+                            <img src="~/images/emptystar.png" alt="Empty Star" class="star-image" />
+                        }
+                    }
+                </div>
+                <br />
+                <p class="reviewText">@review.Message</p>
+                <p class="review-name"><i>@review.Name</i></p>
+                <br />
+            </div>
+
+            <div class="review-button-group">
+                <form>
+                    <a asp-page="/Reviews/EditReview" asp-route-reviewId="@review.Id" class="btn btnDonerLight"><i class="bi bi-pencil-square"></i></a>
+                </form>
+                <form method="post" asp-page-handler="Delete" asp-route-reviewId="@review.Id">
+                    <button type="submit" class="btn btnDonerLight"><i class="bi bi-trash3-fill"></i></button>
+                </form>
+            </div>
+        </div>
+
+        
+    </div>
+}

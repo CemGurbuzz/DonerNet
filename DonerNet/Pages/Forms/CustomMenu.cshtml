@@ -1,0 +1,71 @@
+﻿@page
+@model DonerNet.Pages.Forms.CustomMenuModel
+@{
+}
+
+<div class="container">
+    <h1>Create Your Own Döner Menu!</h1>
+    <form method="post" class="mx-auto mt-5 mb-5 px-5 pt-5 pb-5 rounded-5 alert-light col-4">
+        <input type="text" asp-for="Doner.DonerName" 
+        placeholder="Give your Döner name..."/>
+        <br /> <br />
+        
+        <div class="d-flex justify-content-between">
+            <div>
+                <p><i><b>Meat of Döner?</b></i></p>
+                <input type="radio" asp-for="Doner.Beef" value="true" required /> Beef <small><i>€4</i></small>
+                <br />
+                <input type="radio" asp-for="Doner.Beef" value="false" required /> Chicken <small><i>€3</i></small>
+            </div>
+
+            <div>
+                <p><i><b>Quantity of Döner:</b></i></p>
+                <input type="number" asp-for="Doner.Quantity" value="1" min="1" max="20" required />
+            </div>
+        </div>
+        <br />
+
+        <p><i><b>Service of Döner:</b></i></p>
+        <div>
+            <input type="radio" asp-for="Doner.Durum" value="true" name="service" required /> Dürüm
+        </div>
+        <div>
+            <input type="radio" asp-for="Doner.Tombik" value="true" name="service" required /> Tombik
+        </div>
+        <div>
+            <input type="radio" asp-for="Doner.Portion" value="true" name="service" required /> Portion
+        </div>
+        <br />
+
+        <p><i><b>Inside of Döner:</b></i></p>
+        <input type="checkbox" asp-for="Doner.Sauce" placeholder="Special Sauce" /> Extra Sauce <small><i>+€0,5</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.Onion" placeholder="Onion" /> Onion <small><i>+€0,5</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.Tomato" placeholder="Tomato" /> Tomato <small><i>+€0,5</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.Pickle" placeholder="Pickle" /> Pickle <small><i>+€0,5</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.Tahin" placeholder="Tahin" /> Tahin <small><i>+€0,5</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.Yogurt" placeholder="Yogurt" /> Yogurt <small><i>+€0,5</i></small>
+        <br /><br />
+
+        <p><i><b>With Menu:</b></i></p>
+        <input type="checkbox" asp-for="Doner.PotatoFries" placeholder="PotatoFries" /> Potato Fries <small><i>+€2</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.OnionRing" placeholder="OnionRing" /> Onion Ring <small><i>+€2</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.Cola" placeholder="Cola" /> Cola <small><i>+€1</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.Ayran" placeholder="Ayran" /> Ayran <small><i>+€1</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.Soda" placeholder="Soda" /> Soda <small><i>+€1</i></small>
+        <br />
+        <input type="checkbox" asp-for="Doner.Water" placeholder="Water" /> Water <small><i>+€1</i></small>
+        <br /><br />
+
+        <button class="btn btnDoner mt-1" type="submit">Order My Döner</button>
+
+    </form>
+</div>

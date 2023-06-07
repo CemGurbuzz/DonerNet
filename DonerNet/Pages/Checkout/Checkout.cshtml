@@ -1,0 +1,19 @@
+﻿@page
+@model DonerNet.Pages.Checkout.CheckoutModel
+@{
+}
+
+<h1>Your Order!</h1>
+@{
+    var imagePath = "~/images/" + (Model.ImageTitle + ".png");
+}
+<div class="align-content-center">
+    <div class="col-3 mx-auto mb-5">
+        <img src=@imagePath class="w-100" asp-append-version="true" />
+        <p>Your order for the @Model.DonerName is ready!</p>
+        <p>Total price for your order is: €@Model.DonerPrice</p>
+        <p>Order date: @Model.OrderDateTime.ToString("HH:mm  ,  dd-MM-yyyy")</p>
+        <br />
+        <a class="btn btnDoner alert-primary mt-1 mx-auto" asp-area="" asp-page="ThankYou">Confirm Order <i class="bi bi-check-lg"></i></a>
+    </div>
+</div>
